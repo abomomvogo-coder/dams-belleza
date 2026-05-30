@@ -24,3 +24,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Small UI improvements */
+a { text-decoration: none; }
+button { cursor: pointer; }
+.rounded-full { border-radius: 9999px; }
+
+/* Improve default inputs */
+input, textarea { border: 1px solid #e5e7eb; padding: 0.6rem; border-radius: 0.375rem; }
+

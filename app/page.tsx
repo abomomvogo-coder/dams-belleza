@@ -1,3 +1,5 @@
+import CartIcon from "./components/CartIcon";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
@@ -5,11 +7,13 @@ export default function Home() {
       {/* NAVBAR */}
       <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-sm">
         <h1 className="text-2xl font-bold text-pink-500">Dam's Belleza</h1>
-        <div className="flex gap-6 text-sm font-medium text-gray-600">
-          <a href="/" className="hover:text-pink-500">Accueil</a>
-          <a href="/perruques" className="hover:text-pink-500">Perruques</a>
-          <a href="/parfums" className="hover:text-pink-500">Parfums</a>
-          <a href="/commander" className="hover:text-pink-500">Commander</a>
+        <div className="flex items-center gap-6">
+          <div className="flex gap-6 text-sm font-medium text-gray-600">
+            <a href="/" className="hover:text-pink-500">Accueil</a>
+            <a href="/perruques" className="hover:text-pink-500">Perruques</a>
+            <a href="/parfums" className="hover:text-pink-500">Parfums</a>
+          </div>
+          <CartIcon />
         </div>
       </nav>
 
