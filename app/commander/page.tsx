@@ -12,9 +12,9 @@ export default function CommanderPage() {
   const [sent, setSent] = useState(false);
 
   function placeOrder() {
-    if (!phone || items.length === 0) return alert("Veuillez renseigner un téléphone et ajouter au moins un article.");
+    if (!phone || items.length === 0) return alert("Please provide a phone number and add at least one item.");
     const lines = items.map((i) => `${i.qty}× ${i.title} — ${i.price.toLocaleString()} FCFA`);
-    const msg = `Commande pour ${name || "(sans nom)"}\nTel: ${phone}\nAdresse: ${address || "(non fournie)"}\n\n${lines.join("\n")}\n\nTotal: ${totalPrice.toLocaleString()} FCFA`;
+    const msg = `Order for ${name || "(no name)"}\nPhone: ${phone}\nAddress: ${address || "(not provided)"}\n\n${lines.join("\n")}\n\nTotal: ${totalPrice.toLocaleString()} FCFA`;
     const url = `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(msg)}`;
     // open whatsapp link in new tab
     window.open(url, "_blank", "noopener,noreferrer");
@@ -24,9 +24,9 @@ export default function CommanderPage() {
 
   return (
     <main className="min-h-screen p-8 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Panier & Commander</h1>
+      <h1 className="text-2xl font-bold mb-4">Cart & Checkout</h1>
       {items.length === 0 ? (
-        <div className="text-center text-gray-500">Votre panier est vide.</div>
+        <div className="text-center text-gray-500">Your cart is empty.</div>
       ) : (
         <div className="space-y-4">
           {items.map((it) => (
@@ -52,17 +52,17 @@ export default function CommanderPage() {
           <div className="flex justify-between items-center text-lg font-bold py-4 border-t">Total: {totalPrice.toLocaleString()} FCFA</div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-            <input placeholder="Nom" value={name} onChange={(e) => setName(e.target.value)} className="p-3 border rounded" />
-            <input placeholder="Téléphone (ex: 237691...)" value={phone} onChange={(e) => setPhone(e.target.value)} className="p-3 border rounded" />
-            <input placeholder="Adresse" value={address} onChange={(e) => setAddress(e.target.value)} className="p-3 border rounded" />
+            <input placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="p-3 border rounded" />
+            <input placeholder="Phone (e.g. 237691...)" value={phone} onChange={(e) => setPhone(e.target.value)} className="p-3 border rounded" />
+            <input placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} className="p-3 border rounded" />
           </div>
 
           <div className="flex gap-3 mt-4">
-            <button onClick={placeOrder} className="bg-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-600 transition">Passer commande (WhatsApp)</button>
-            <button onClick={() => { clearCart(); }} className="bg-gray-200 text-gray-800 px-6 py-3 rounded-full">Vider le panier</button>
+            <button onClick={placeOrder} className="bg-yellow-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-yellow-800 transition">Place order (WhatsApp)</button>
+            <button onClick={() => { clearCart(); }} className="bg-gray-200 text-gray-800 px-6 py-3 rounded-full">Clear cart</button>
           </div>
 
-          {sent && <div className="text-green-600 mt-3">Commande ouverte dans WhatsApp. Confirmez l'envoi dans la nouvelle fenêtre.</div>}
+          {sent && <div className="text-green-600 mt-3">WhatsApp window opened. Confirm and send the message to complete the order.</div>}
         </div>
       )}
     </main>

@@ -36,9 +36,9 @@ export default function ProductCard({
           <div className="text-pink-500 font-bold">{price.toLocaleString()} FCFA</div>
           <button
             onClick={() => addItem({ id, title, price, image }, 1)}
-            className="ml-4 bg-pink-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-pink-600 transition"
+            className="ml-4 bg-yellow-700 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-800 transition"
           >
-            Ajouter au panier
+            Add to cart
           </button>
         </div>
       </div>

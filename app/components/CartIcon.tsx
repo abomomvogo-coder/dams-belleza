@@ -13,7 +13,7 @@ export default function CartIcon() {
         <circle cx="10" cy="19" r="1" fill="currentColor" />
         <circle cx="18" cy="19" r="1" fill="currentColor" />
       </svg>
-      <span>Panier</span>
+      <span>Cart</span>
       {totalCount > 0 && (
         <span className="ml-1 inline-flex items-center justify-center px-2 py-0.5 text-xs font-medium bg-pink-500 text-white rounded-full">{totalCount}</span>
       )}
