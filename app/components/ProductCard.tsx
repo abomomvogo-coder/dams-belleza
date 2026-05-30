@@ -23,23 +23,26 @@ export default function ProductCard({
   const { addItem } = useCart();
 
   return (
-    <div className="border rounded-2xl overflow-hidden hover:shadow-lg transition flex flex-col">
+    <div className="card hover:shadow-lg transition flex flex-col">
       {image ? (
         <Image src={image} alt={title} width={400} height={300} className="w-full h-56 object-cover" />
       ) : (
         <div className="w-full h-56 bg-gray-100" />
       )}
-      <div className="p-6 flex-1 flex flex-col">
-        {tag && <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{tag}</span>}
-        <h3 className="text-lg font-bold text-gray-800 mt-3"><Link href={`/products/${id}`}>{title}</Link></h3>
-        {description && <p className="text-gray-500 text-sm mt-1 flex-1">{description}</p>}
-        <div className="mt-3 flex items-center justify-between">
-          <div className="text-pink-500 font-bold">{price.toLocaleString()} FCFA</div>
+      <div className="p-5 flex-1 flex flex-col">
+        <div className="flex items-center justify-between">
+          {tag ? <span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">{tag}</span> : <div />}
+          <div className="text-sm text-gray-500">In stock</div>
+        </div>
+        <h3 className="text-lg font-semibold text-gray-900 mt-3 product-title"><Link href={`/products/${id}`}>{title}</Link></h3>
+        {description && <p className="text-gray-500 text-sm mt-2 flex-1">{description}</p>}
+        <div className="mt-4 flex items-center justify-between">
+          <div className="price">{price.toLocaleString()} FCFA</div>
           <button
             onClick={() => addItem({ id, title, price, image }, 1)}
-            className="ml-4 bg-yellow-700 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-800 transition"
+            className="btn-primary"
           >
-            Add to cart
+            Add
           </button>
         </div>
       </div>
