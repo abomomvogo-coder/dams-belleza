@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #b6860b; /* warm gold */
+  --accent-600: #d4af37;
 }
 
 @theme inline {
@@ -22,14 +24,20 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Small UI improvements */
+/* Small UI helpers */
 a { text-decoration: none; }
 button { cursor: pointer; }
 .rounded-full { border-radius: 9999px; }
 
 /* Improve default inputs */
 input, textarea { border: 1px solid #e5e7eb; padding: 0.6rem; border-radius: 0.375rem; }
+
+/* Buttons and accents */
+.btn-primary { background: var(--accent); color: white; padding: 0.6rem 1rem; border-radius: 9999px; }
+.btn-primary:hover { background: var(--accent-600); }
+
+.card { background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
 
